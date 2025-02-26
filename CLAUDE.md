@@ -23,3 +23,8 @@
 - Avoid multiple statements per line
 - Order interfaces and traits alphabetically
 - Prefer strong typing and type casting
+
+## Contributing
+- Run `composer lint ${file_path}` after each file is created or updated
+- Run `composer refactor ${file_path}` after each file is created or updated
+- Run full test suite with `composer test` and fix found errors before showing the final result
