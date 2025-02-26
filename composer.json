@@ -1,6 +1,5 @@
 {
     "name": "plakhin/laravel-artisan-watcher",
-    "version": "1.0.0",
     "description": "A Laravel Artisan package to watch for file changes and automatically execute commands",
     "keywords": ["laravel", "php", "package", "artisan", "file", "watch", "command"],
     "license": "MIT",
@@ -37,6 +36,9 @@
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
         "laravel": {
             "providers": [
                 "Plakhin\\ArtisanWatcher\\ArtisanWatcherServiceProvider"

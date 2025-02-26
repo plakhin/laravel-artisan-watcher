@@ -4,7 +4,10 @@
 
 A Laravel package that provides file watching functionality to automatically execute a CLI or Artisan command when files change. This is useful for automatically running tests, linting, or any other command when your files are modified during development.
 
-#
+> [!WARNING]  
+> <i>Very early alpha — pure proof of concept.</i>  
+> Believe it or not, <b>~95% of this package’s code is AI-generated</b> under 10 minutes with a single prompt!  
+> For the full story, check out [the PR](https://github.com/plakhin/laravel-artisan-watcher/pull/1).
 
 ## Installation
 
