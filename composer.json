@@ -1,7 +1,7 @@
 {
     "name": "plakhin/laravel-artisan-watcher",
     "version": "1.0.0",
-    "description": "Artisan file watcher",
+    "description": "A Laravel Artisan package to watch for file changes and automatically execute commands",
     "keywords": ["laravel", "php", "package", "artisan", "file", "watch", "command"],
     "license": "MIT",
     "authors": [
@@ -58,7 +58,7 @@
         "refactor": "rector",
         "test:lint": "pint --test",
         "test:refactor": "rector --dry-run",
-        "test:types": "phpstan analyse --ansi",
+        "test:types": "phpstan analyse --ansi --memory-limit=256M",
         "test:unit": "pest --colors=always --coverage --parallel --min=100",
         "test": [
             "@test:lint",
