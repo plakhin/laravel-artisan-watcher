@@ -54,6 +54,45 @@ it('handles file deletion correctly', function (): void {
 
                 return $calls === 1;
             });
+        File::partialMock();
+
+        // Run with special parameter for mock
+        artisan('watch', [
+            'path' => $tempdir,
+            '--command' => 'echo "test-delete"',
+            '--max-iterations' => 2,
+        ])->assertSuccessful()
+            ->expectsOutput('Watching for file changes in: '.$tempdir)
+            ->expectsOutput('Command to run: echo "test-delete"')
+            ->expectsOutput('Press Ctrl+C to stop watching.')
+            ->expectsOutput('Watching 1 files for changes')
+            ->expectsOutput('Files changed. Running command...')
+            ->expectsOutputToContain('test-delete')
+            ->expectsOutput('Maximum number of iterations reached. Exiting watch mode.');
+    } finally {
+        if (file_exists($tempFile)) {
+            unlink($tempFile);
+        }
+        if (file_exists($tempdir)) {
+            rmdir($tempdir);
+        }
+    }
+});
+
+it('handles file changes correctly', function (): void {
+    Sleep::fake();
+
+    // Setup a fake iterator that will include items for the first call
+    // and then a different set for the second call (simulating deletion)
+    $tempdir = sys_get_temp_dir().'/artisan-watcher-test-'.uniqid();
+    mkdir($tempdir);
+    $tempFile = $tempdir.'/test-'.uniqid().'.php';
+    file_put_contents($tempFile, '<?php echo "test"; ?>');
+
+    try {
+        File::shouldReceive('lastModified')
+            ->andReturn(now()->subHour()->timestamp);
+        File::partialMock();
 
         // Run with special parameter for mock
         artisan('watch', [

@@ -128,7 +128,7 @@ final class ArtisanWatcher extends Command
         // Check existing files for modifications
         foreach ($finder as $file) {
             $filePath = $file->getRealPath();
-            $lastModified = $file->getMTime();
+            $lastModified = File::lastModified($filePath);
 
             // New file or modified file
             if (! isset($this->filesLastModified[$filePath]) || $this->filesLastModified[$filePath] !== $lastModified) {
