@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+    paths:
+      - '**.php'
+      - '.github/workflows/**.yml'
+      - 'composer.json'
+      - 'composer.lock'
+      - 'phpstan.neon.dist'
+      - 'phpunit.xml.dist'
+      - 'pint.json'
+  pull_request:
+
+concurrency:
+  group: ci-tests-${{ github.ref }}-1
+  cancel-in-progress: true
+
+jobs:
+  Pest:
+    uses: ./.github/workflows/pest.yml
+  PHPStan:
+    uses: ./.github/workflows/phpstan.yml
+  Pint:
+    uses: ./.github/workflows/pint.yml
+  Rector:
+    uses: ./.github/workflows/rector.yml
