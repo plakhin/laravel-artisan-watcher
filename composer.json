@@ -1,8 +1,8 @@
 {
-    "name": "plakhin/laravel-package-skeleton",
+    "name": "plakhin/laravel-artisan-watcher",
     "version": "1.0.0",
-    "description": "A skeleton repository for my packages",
-    "keywords": ["laravel", "php", "package", "skeleton"],
+    "description": "Artisan file watcher",
+    "keywords": ["laravel", "php", "package", "artisan", "file", "watch", "command"],
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
         "laravel/pint": "^1.21",
         "orchestra/testbench": "^9.0|^10.0",
         "pestphp/pest": "^3.7",
-        "pestphp/pest-plugin-laravel": "^3.3",
+        "pestphp/pest-plugin-laravel": "^3.1",
         "pestphp/pest-plugin-type-coverage": "^3.3",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -28,22 +28,22 @@
     },
     "autoload": {
         "psr-4": {
-            "Plakhin\\LPSkeleton\\": "src/"
+            "Plakhin\\ArtisanWatcher\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Plakhin\\LPSkeleton\\Tests\\": "tests/"
+            "Plakhin\\ArtisanWatcher\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Plakhin\\LPSkeleton\\LPSkeletonServiceProvider"
+                "Plakhin\\ArtisanWatcher\\ArtisanWatcherServiceProvider"
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Plakhin\LPSkeleton\Tests;
+namespace Plakhin\ArtisanWatcher\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Plakhin\LPSkeleton\LPSkeletonServiceProvider;
+use Plakhin\ArtisanWatcher\ArtisanWatcherServiceProvider;
 
 class TestCase extends Orchestra
 {
     protected function getPackageProviders($app)
     {
         return [
-            LPSkeletonServiceProvider::class,
+            ArtisanWatcherServiceProvider::class,
         ];
     }
 }
